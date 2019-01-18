@@ -8,16 +8,7 @@ int main(void)
 	int A;
 	int B;
 	int C;
-A=0;
-B=0;
-printf("%d\n",(A && !B));
-B=1;
-printf("%d\n",(A && !B));
-A=1;
-B=0;
-printf("%d\n",(A && !B));
-B=1;
-printf("%d\n",(A && !B));
+
 
 // A     B     C     result
 // -------------------------
