@@ -12,25 +12,21 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
     hash_table_insert(ht,weights[i],i);
   }
 
-  for(int i = 0; i <= limit; i++){
-    int a = hash_table_retrieve(ht, i);
-    int b = hash_table_retrieve(ht, limit-i);
-    //a failed retrieve would equal -1 so anything 
-    //greater than equal to 0 means dual retrieval
-    if(a>=0 && b >= 0){
-      printf("a:%d, b:%d\n",a,b );
+
+  for(int i = 0; i < length; i++){
+    int weight = weights[i];
+    int lookup = limit-weight;
+    int index = hash_table_retrieve(ht, lookup);
+  
+    if(index >= 0){
       Answer *answer = malloc(sizeof(Answer));
-      if(a>b){
-        answer->index_1 = a;
-        answer->index_2 = b;
-      } else {
-        answer->index_1 = b;
-        answer->index_2 = a;
-      }
+
+      answer->index_1 = (index>i) ? index : i;
+      answer->index_2 = (index>i) ? i : index;
+  
       return answer;
     }
   }
-
   return NULL;
 }
 
