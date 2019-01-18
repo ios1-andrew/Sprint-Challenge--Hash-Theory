@@ -27,7 +27,7 @@ int main(void)
 		A = a[i];
 		B = b[i];
 		C = c[i];
-		printf("index: %d result: %d\n",i,!(A && B) || ( (A && C) && !(B || !C) ) );
+		printf("index: %d carry: %d sum: %d\n",i,(A&&B)&&C,(A!=B)!=C);
 	}
 	return 0;
 }
