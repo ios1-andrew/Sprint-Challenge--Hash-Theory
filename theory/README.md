@@ -74,5 +74,5 @@ A     B     C      carry   sum
 1     1     0        0      0
 1     1     1        1      1
 ```
-* SUM = ?
-* CARRY = ?
+* SUM = (A && B && C) alternate: (A && B) && C
+* CARRY = (A ^ B) ^ C alternate (in C): (A != B) != C
